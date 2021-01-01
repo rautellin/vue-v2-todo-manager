@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h1>Home</h1>
-    <HelloWorld v-bind:msg="`Welcome to your Vue.js App ${user}`" />
+    <AddTodo />
+    <Todos />
   </div>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld";
+import Todos from "../components/Todos";
+import AddTodo from "../components/AddTodo";
 import { mapState } from "vuex";
 
 export default {
@@ -16,7 +17,17 @@ export default {
     user: (state) => state.user,
   }),
   components: {
-    HelloWorld,
+    Todos,
+    AddTodo,
   },
 };
 </script>
+
+<style scoped>
+div {
+  max-width: 1100px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 2rem;
+}
+</style>
