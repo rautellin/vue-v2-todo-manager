@@ -1,6 +1,8 @@
 <template>
   <div>
+    <h1>Hi {{ name }}</h1>
     <AddTodo />
+    <FilterTodos />
     <Todos />
   </div>
 </template>
@@ -8,17 +10,21 @@
 <script>
 import Todos from "../components/Todos";
 import AddTodo from "../components/AddTodo";
+import FilterTodos from "../components/FilterTodos";
 import { mapState } from "vuex";
 
 export default {
   name: "Home",
-  computed: mapState({
-    // arrow functions can make the code very succinct!
-    user: (state) => state.user,
-  }),
+  computed: {
+    ...mapState(["user"]),
+    name() {
+      return this.$store.state.user;
+    },
+  },
   components: {
     Todos,
     AddTodo,
+    FilterTodos,
   },
 };
 </script>

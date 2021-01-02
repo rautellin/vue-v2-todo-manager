@@ -22,6 +22,7 @@ export default {
     ...mapActions(["addTodo"]),
     onSubmit() {
       this.addTodo(this.title);
+      this.title = "";
     },
   },
 };
